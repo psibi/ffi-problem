@@ -27,4 +27,4 @@ structPlay = do
       f3 <- peekCString $ field3 testPtr
       f1 `shouldBe` "helloko"
       f2 `shouldBe` "byeko"
-      -- f3 `shouldBe` "AAA"
+      -- f3 `shouldBe` "aaa"
