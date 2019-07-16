@@ -1,5 +1,3 @@
-#include <sys/select.h>
-
 struct test {
   struct test *pNext;
   char * testField1;
