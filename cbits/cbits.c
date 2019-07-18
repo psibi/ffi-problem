@@ -27,3 +27,16 @@ struct bar b = {
 struct bar *jam3() {
   return &b;
 }
+
+struct bar *temp;
+struct bar *bar_alloc() {
+  return &temp;
+}
+
+void write_to_bar(struct bar *mybar) {
+  mybar->barfield1 = 4;
+  strcpy(mybar->barfield2.foofield1,"hi");
+  strcpy(mybar->barfield2.foofield2,"bi");
+  strcpy(mybar->barfield3.foofield1,"hi2");
+  strcpy(mybar->barfield3.foofield2,"bi2");
+}

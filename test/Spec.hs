@@ -54,3 +54,16 @@ structPlay = do
       bf2Val' <- peek bf2
       (fooField1 bf2Val') `shouldBe` "abc"
       (fooField2 bf2Val') `shouldBe` "def"
+    it "transparent pointers" $ do
+      barPtr <- c_barAlloc
+      c_writeToBar barPtr
+      barVal <- peek barPtr
+      barField1 barVal `shouldBe` 4
+      let bf2 = barField2 barVal
+          bf3 = barField3 barVal
+      bf2Val :: Foo <- peek bf2
+      bf3Val :: Foo <- peek bf3
+      (fooField1 bf2Val) `shouldBe` "hi"
+      (fooField2 bf2Val) `shouldBe` "bi"
+      (fooField1 bf3Val) `shouldBe` "hi2"
+      (fooField2 bf3Val) `shouldBe` "bi2"

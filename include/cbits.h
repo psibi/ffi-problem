@@ -21,3 +21,7 @@ struct bar {
 };
 
 struct bar *jam3();
+
+struct bar *bar_alloc();
+
+void write_to_bar(struct bar *mybar);

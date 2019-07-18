@@ -65,3 +65,7 @@ instance Storable Bar where
       poke (barField3 b) field3'
 
 foreign import ccall "cbits.h jam3" c_jam3 :: IO (Ptr Bar)
+
+foreign import ccall "cbits.c bar_alloc" c_barAlloc :: IO (Ptr Bar)
+
+foreign import ccall "cbits.c write_to_bar" c_writeToBar :: Ptr Bar -> IO ()
