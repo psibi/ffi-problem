@@ -1,5 +1,7 @@
 #include "cbits.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 struct test a = {
                  .pNext = NULL,
@@ -28,9 +30,9 @@ struct bar *jam3() {
   return &b;
 }
 
-struct bar *temp;
 struct bar *bar_alloc() {
-  return &temp;
+  struct bar *temp = malloc(sizeof(struct bar));
+  return temp;
 }
 
 void write_to_bar(struct bar *mybar) {
